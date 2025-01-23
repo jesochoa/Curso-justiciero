@@ -6,8 +6,10 @@
 /* Funcion para inicializar el BMI160 */
 void bmi_initSpi();
 
-/* Se recibe un entero de 8 bits*/
-uint8_t bmi_getId();
+
+
+// Lee un byte de un registro del BMI160
+uint8_t  bmi160_read_register(uint8_t reg_addr, uint8_t *data);
 
 
 #endif //__BMI160_H__
