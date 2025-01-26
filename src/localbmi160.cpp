@@ -76,7 +76,8 @@ int8_t bmi_read_spi(uint8_t dev_addr, uint8_t reg_addr, uint8_t *data, uint16_t 
     spi_transaction_t Spi_Trans = {0};
 
     Spi_Trans.length = 8*len; // Transmitimos en 8 bits * len
-    Spi_Trans.addr = (dev_addr);// Direción a leer 0x00 
+    //Spi_Trans.addr = (dev_addr);// Direción a leer 0x00 
+    Spi_Trans.addr = (reg_addr | 0x80);//
     Spi_Trans.rxlength = 8*len; // Recibimos un byte, 8 bits
     Spi_Trans.rx_buffer = data; // Buffer de recepción se pone data porque es un puntero
 

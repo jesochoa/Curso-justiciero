@@ -1,11 +1,12 @@
 
 #include "localbmi160.h"
-#include <esp_log.h>
+
 #include <freertos/FreeRTOS.h>
+
+extern "C" void app_main();
 
 bmi160_dev dev; // Estructura del BMI160
 
-extern "C" void app_main();
 void app_main() {
 
     vTaskDelay(pdMS_TO_TICKS(1000));
@@ -23,6 +24,8 @@ void app_main() {
         printf("BMI160 inicializado correctamente\n");
         printf("Chip ID 0x%X\n", dev.chip_id);
     }
+
+
 
     /* Select the Output data rate, range of accelerometer sensor */
     dev.accel_cfg.odr = BMI160_ACCEL_ODR_1600HZ;
